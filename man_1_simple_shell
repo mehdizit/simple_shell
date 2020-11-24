@@ -1,0 +1,91 @@
+.\"Manpage for my own siple shell.
+.TH man 1 "20 Nvember  2020" "1.0" "Holberton School My own simple_shell Manual"
+
+.SH NAME
+simple shell\- Simple UNIX shell
+
+.SH SYNOPSIS
+.B ./hsh
+.I options are not available
+Part of a project at holberton school.
+
+.SH DESCRIPTION
+
+simple shell is a simplified shell that takes user input as UNIX commands and interprets\
+them.  It based on the first UNIX shell created by Ken Thompson. It is designed\
+to be used in a UNIX-like environment.
+
+.SH INVOCATION
+.br
+.\&
+.RS
+\&$ ./hsh
+
+A prompt will then appear and the user can begin entering and executing\
+commands by pressing 'enter'.
+
+Commands can also be entered and then piped into ./hsh.
+.br
+.\&
+\&$ echo "I have a purple penguin" | ./hsh
+
+.SH FEATURES
+.br
+.B Accepts piped input
+.br
+.B Accepts file as an argument
+.br
+.B Variable substitution
+.br
+-$? $$ $# $0-9
+.br
+.B Set local vars with FOO=bar
+.br
+-Local variables not passed with environment
+.br
+.B escape characters with -&&, || and ; -tilde expansion to home \
+directory from env
+
+
+.SH BUILTINS
+The following builtins are supported by hsh
+.br
+.br
+.B env
+.br
+-prints environment.Falls through to std env if more than 1 arg -quotes around\
+ arguments (accepting more stdin on mismatch in progress)
+.br
+.B exit
+-with status
+.br
+-exits the program
+.br
+.B cd
+.br
+- change directories
+.br
+.B setenv
+.br
+- sets environment variable
+.br
+.B unsetenv
+.br
+- unsets environment variable
+.br
+.B alias
+.br
+- creates alias variable
+.br
+.B unalias
+.br
+- removes alias variable
+
+.SH BUGS
+
+
+.SH "SEE ALSO"
+.SH sh
+
+.SH "AUTHORS"
+Zitouni Mehdi
