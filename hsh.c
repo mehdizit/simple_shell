@@ -1,48 +1,49 @@
 #include "holberton.h"
 /**
- * main - main loop of shell
- * Return: 0 on success
+ * main - point to be enter the programe
+ *@argc: integer
+ *@argv: array of string
+ * Return: Always 0.
  */
-int main(void)
+int main(int __attribute__((unused)) argc, char **argv)
 {
-	char *line, *path, *fullpath;
-	char **tokens;
-	int flag, builtin_status, child_status;
-	struct stat buf;
+	char *line, *search_path, *_path;
+	int arg, status, child;
+	struct stat buffer;
 
-	while (TRUE)
+	while (1)
 	{
-		prompt(STDIN_FILENO, buf);
+		prompt(STDIN_FILENO, buffer);
 		line = _getline(stdin);
 		if (_strcmp(line, "\n", 1) == 0)
 		{
 			free(line);
 			continue;
 		}
-		tokens = split_line(line);
-		if (tokens[0] == NULL)
+		argv = split_line(line);
+		if (argv[0] == NULL)
 			continue;
-		builtin_status = _execute(tokens);
-		if (builtin_status == 0 || builtin_status == -1)
+		status = _execute(argv);
+		if (status == 0 || status == -1)
 		{
-			free(tokens);
+			free(argv);
 			free(line);
 		}
-		if (builtin_status == 0)
+		if (status == 0)
 			continue;
-		if (builtin_status == -1)
+		if (status == -1)
 			_exit(EXIT_SUCCESS);
-		flag = 0; 
-		path = _getenv("PATH");
-		fullpath = _which(tokens[0], fullpath, path);
-		if (fullpath == NULL)
-			fullpath = tokens[0];
+		arg = 0;
+		search_path = _getenv("PATH");
+		_path = _which(argv[0], _path, search_path);
+		if (_path == NULL)
+			_path = argv[0];
 		else
-			flag = 1; 
-		child_status = fork_process(fullpath, tokens);
-		if (child_status == -1)
+			arg = 1;
+		child = fork_process(_path, argv);
+		if (child == -1)
 			errors(2);
-		free_all(tokens, path, line, fullpath, flag);
+		free_all(argv, search_path, line, _path, arg);
 	}
 	return (0);
 }
