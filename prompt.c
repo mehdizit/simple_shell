@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ * _puts - print string
+ * @str: string
+ * Return: Always 0
+ */
 
 void _puts(char *str)
 {
@@ -9,10 +13,14 @@ void _puts(char *str)
 
 	write(STDOUT_FILENO, str, length);
 }
-
-void prompt(int fd, struct stat buf)
+/**
+ * prompt - prints prompt
+ * @f: file stream
+ * @buf: buffer
+**/
+void prompt(int f, struct stat buf)
 {
-	fstat(fd, &buf);
+	fstat(f, &buf);
 
 	if (S_ISCHR(buf.st_mode))
 		_puts(PROMPT);
