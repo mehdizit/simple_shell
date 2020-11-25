@@ -1,10 +1,10 @@
 #include "holberton.h"
 /**
-**builtin_execute - executes the built in functions
-**@tokens: arguments being passed
-**Return: tokens
-**/
-int builtin_execute(char **tokens)
+*_execute - executes the built in functions
+*@tokens: arguments being passed
+*Return: tokens
+*/
+int _execute(char **tokens)
 {
 	int status;
 	unsigned int length;
@@ -12,8 +12,8 @@ int builtin_execute(char **tokens)
 	unsigned int i;
 
 	built_s builtin[] = {
-		{"exit", shell_exit},
-		{"env", shell_env},
+		{"exit", s_exit},
+		{"env", s_env},
 		{NULL, NULL}
 	};
 
@@ -22,7 +22,7 @@ int builtin_execute(char **tokens)
 
 	length = _strlen(tokens[0]);
 
-	num = shell_num_builtins(builtin);
+	num = _num_builtins(builtin);
 	for (i = 0; i < num; i++)
 	{
 		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
@@ -35,12 +35,12 @@ int builtin_execute(char **tokens)
 }
 
 /**
-**shell_num_builtins - this check num built-ins
+**_num_builtins - this check num built-ins
 **@builtin: takes the builtin to be counted
 **Return: num of built-ins
 **/
 
-int shell_num_builtins(built_s builtin[])
+int _num_builtins(built_s builtin[])
 {
 	unsigned int i;
 
