@@ -1,10 +1,6 @@
 #include "holberton.h"
 
-/**
- * tokenizer - tokenizes string
- * @str: user input
- * Return: pointer to array of tokens
- */
+
 char **split_line(char *str)
 {
 	char **tokens;
