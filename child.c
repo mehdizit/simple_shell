@@ -1,7 +1,12 @@
 #include "holberton.h"
+/**
+ * fork_process - new process
+ * @path: path to execute
+ * @tokens: split user input
+ * Return: 0 
+ */
 
-
-int fork_process(char *fullpath, char **tokens)
+int fork_process(char *path, char **tokens)
 {
 	pid_t child_pid;
 	int status;
@@ -16,7 +21,7 @@ int fork_process(char *fullpath, char **tokens)
 	}
 	if (child_pid == 0)
 	{
-		execve_status = execve(fullpath, tokens, envp);
+		execve_status = execve(path, tokens, envp);
 		if (execve_status == -1)
 			return (-1);
 	}
