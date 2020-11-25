@@ -22,7 +22,7 @@ int main(void)
 		tokens = split_line(line);
 		if (tokens[0] == NULL)
 			continue;
-		builtin_status = builtin_execute(tokens);
+		builtin_status = _execute(tokens);
 		if (builtin_status == 0 || builtin_status == -1)
 		{
 			free(tokens);
@@ -32,14 +32,14 @@ int main(void)
 			continue;
 		if (builtin_status == -1)
 			_exit(EXIT_SUCCESS);
-		flag = 0; /* 0 if full_path is not malloc'd */
+		flag = 0; 
 		path = _getenv("PATH");
 		fullpath = _which(tokens[0], fullpath, path);
 		if (fullpath == NULL)
 			fullpath = tokens[0];
 		else
-			flag = 1; /* if fullpath was malloc'd, flag to free */
-		child_status = child(fullpath, tokens);
+			flag = 1; 
+		child_status = fork_process(fullpath, tokens);
 		if (child_status == -1)
 			errors(2);
 		free_all(tokens, path, line, fullpath, flag);
