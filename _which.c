@@ -1,17 +1,17 @@
 #include "holberton.h"
 /**
- * _which - searches directories in PATH variable for command
- * @command: to search for
- * @fullpath: full path of command to execute
- * @path: full PATH variable
- * Return: pointer to full_path
+ * _which - searches var path
+ * @cmd: char argument
+ * @fullpath: char string
+ * @path: char
+ * Return: path.
  */
-char *_which(char *command, char *fullpath, char *path)
+char *_which(char *cmd, char *fullpath, char *path)
 {
 	unsigned int command_length, path_length, original_path_length;
 	char *path_copy, *token;
 
-	command_length = _strlen(command);
+	command_length = _strlen(cmd);
 	original_path_length = _strlen(path);
 	path_copy = malloc(sizeof(char) * original_path_length + 1);
 	if (path_copy == NULL)
@@ -20,7 +20,6 @@ char *_which(char *command, char *fullpath, char *path)
 		return (NULL);
 	}
 	_strcpy(path_copy, path);
-	/* copy PATH directory + command name and check if it exists */
 	token = strtok(path_copy, ":");
 	if (token == NULL)
 		token = strtok(NULL, ":");
@@ -35,7 +34,7 @@ char *_which(char *command, char *fullpath, char *path)
 		}
 		_strcpy(fullpath, token);
 		fullpath[path_length] = '/';
-		_strcpy(fullpath + path_length + 1, command);
+		_strcpy(fullpath + path_length + 1, cmd);
 		fullpath[path_length + command_length + 1] = '\0';
 		if (access(fullpath, X_OK) != 0)
 		{
