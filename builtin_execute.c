@@ -1,10 +1,11 @@
 #include "holberton.h"
 /**
 *_execute - executes the built in functions
-*@tokens: arguments being passed
-*Return: tokens
+*@array: char
+*
+*Return: array of string.
 */
-int _execute(char **tokens)
+int _execute(char **array)
 {
 	int status;
 	unsigned int length;
@@ -17,15 +18,15 @@ int _execute(char **tokens)
 		{NULL, NULL}
 	};
 
-	if (tokens[0] == NULL)
+	if (array[0] == NULL)
 		return (1);
 
-	length = _strlen(tokens[0]);
+	length = _strlen(array[0]);
 
 	num = _num_builtins(builtin);
 	for (i = 0; i < num; i++)
 	{
-		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
+		if (_strcmp(array[0], builtin[i].name, length) == 0)
 		{
 			status = (builtin[i].p)();
 			return (status);
@@ -35,10 +36,10 @@ int _execute(char **tokens)
 }
 
 /**
-**_num_builtins - this check num built-ins
-**@builtin: takes the builtin to be counted
-**Return: num of built-ins
-**/
+*_num_builtins - this check num built-ins
+*@builtin: builtin
+*Return: number of built-ins
+*/
 
 int _num_builtins(built_s builtin[])
 {
