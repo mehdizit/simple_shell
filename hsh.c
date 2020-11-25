@@ -34,7 +34,7 @@ int main(int __attribute__((unused)) argc, char **argv)
 		if (status == -1)
 			_exit(EXIT_SUCCESS);
 		arg = 0;
-		search_path = _getenv("PATH");
+		search_path = printenv("PATH");
 		_path = _which(argv[0], _path, search_path);
 		if (_path == NULL)
 			_path = argv[0];
