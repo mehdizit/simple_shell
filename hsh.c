@@ -19,7 +19,7 @@ int main(void)
 			free(line);
 			continue;
 		}
-		tokens = tokenizer(line);
+		tokens = split_line(line);
 		if (tokens[0] == NULL)
 			continue;
 		builtin_status = builtin_execute(tokens);
