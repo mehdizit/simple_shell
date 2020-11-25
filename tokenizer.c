@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ *split_line - split string
+ * @str: user input
+ * Return:array of string.
+ */
 
 char **split_line(char *str)
 {
