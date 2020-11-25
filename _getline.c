@@ -1,7 +1,12 @@
 #include "holberton.h"
+/**
+ * _getline - get char from input stream
+ * @f: buffer input
+ *
+ * Return: char read from stream
+ */
 
-
-char *_getline(FILE *fp)
+char *_getline(FILE *f)
 {
 	char *line;
 	ssize_t read;
@@ -9,7 +14,7 @@ char *_getline(FILE *fp)
 
 	line = NULL;
 	len = 0;
-	read = getline(&line, &len, fp);
+	read = getline(&line, &len, f);
 	if (read == -1)
 	{
 		free(line);
