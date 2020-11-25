@@ -1,28 +1,24 @@
 #include "holberton.h"
 
-/**
- * errors - prints errors based on case
- * @error: error number associated with perror statement
- * Return: void
- */
+
 void errors(int error)
 {
 	switch (error)
 	{
-	case 1: /* writes fork error to stderr */
-		write(STDERR_FILENO, ERR_FORK, _strlen(ERR_FORK));
+	case 1: 
+		write(STDERR_FILENO, ERR_F, _strlen(ERR_F));
 		perror("Error");
 		break;
 
-	case 2: /* writes execve error to stderr */
+	case 2: 
 		perror("Error");
 		break;
 
-	case 3: /* writes malloc error to stderr */
-		write(STDERR_FILENO, ERR_MALLOC, _strlen(ERR_MALLOC));
+	case 3: 
+		write(STDERR_FILENO, ERR_M, _strlen(ERR_M));
 		break;
-	case 4: /* writes empty path error to stderr */
-		write(STDERR_FILENO, ERR_PATH, _strlen(ERR_PATH));
+	case 4: 
+		write(STDERR_FILENO, ERR_P, _strlen(ERR_P));
 		break;
 
 	default:
