@@ -1,6 +1,11 @@
 #include "holberton.h"
+/**
+ *printenv - print an environment variable
+ * @name: environment char
+ * Return: pointer to path or NULL.
+ */
 
-char *_getenv(const char *name)
+char *printenv(const char *name)
 {
 	char **environ_copy;
 	char *variable, *value, *path;
@@ -46,9 +51,9 @@ char *_getenv(const char *name)
 
 /**
  * copy_env - copies environment variable
- * @environ_copy: pointer to copy of environment variable
- * @environ_length: length of environment variable
- * Return: double pointer to copy of environment variable
+ * @environ_copy: char
+ * @environ_length: length of char
+ * Return: array of string
  */
 char **copy_env(char **environ_copy, unsigned int environ_length)
 {
