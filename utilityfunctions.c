@@ -1,25 +1,25 @@
 #include "holberton.h"
 
 /**
- * _strcmp - compares two strings to find out if they are exactly the same
- * @name: name supplied by user to search for
- * @variable: variable to compare against
+ * _strcmp - compares two strings.
+ * @name: char
+ * @str: char
  * @length: length of name
- * Return: 1 if strings are equal, -1 if they are not
+ * Return: 1 otherwise -1
  */
-int _strcmp(char *name, char *variable, unsigned int length)
+int _strcmp(char *name, char *str, unsigned int length)
 {
 	unsigned int var_length;
 	unsigned int i;
 
-	var_length = _strlen(variable);
+	var_length = _strlen(str);
 	if (var_length != length)
 		return (-1);
 
 	i = 0;
-	while (name[i] != '\0' && variable[i] != '\0')
+	while (name[i] != '\0' && str[i] != '\0')
 	{
-		if (name[i] != variable[i])
+		if (name[i] != str[i])
 			return (1);
 		i++;
 	}
@@ -28,11 +28,11 @@ int _strcmp(char *name, char *variable, unsigned int length)
 
 /**
  * _strncmp - compares two strings
- * up to given length are the same
- * @name: name supplied by user to search for
- * @variable: variable to compare against
- * @length: length to compare up to
- * Return: 1 if strings are equal, -1 if they are not
+ *
+ * @name: char
+ * @variable: char
+ * @length: length of sring
+ * Return: 1
  */
 int _strncmp(char *name, char *variable, unsigned int length)
 {
@@ -49,10 +49,10 @@ int _strncmp(char *name, char *variable, unsigned int length)
 }
 
 /**
- * *_strcpy - copies string pointed to by src to the buffer pointed to dest
- * @dest: string destination
- * @src: string source
- * Return: the pointer to dest
+ * *_strcpy - copies string
+ * @dest:char destination
+ * @src: char source
+ * Return:char destination.
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -66,7 +66,7 @@ char *_strcpy(char *dest, char *src)
 }
 /**
  * _strlen - returns the length of a string
- * @s: string to be evaluated
+ * @s: string
  * Return: length of string
  */
 int _strlen(char *s)
