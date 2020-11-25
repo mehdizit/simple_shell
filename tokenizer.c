@@ -5,7 +5,7 @@
  * @str: user input
  * Return: pointer to array of tokens
  */
-char **tokenizer(char *str)
+char **split_line(char *str)
 {
 	char **tokens;
 	char *token;
