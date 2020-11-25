@@ -3,7 +3,7 @@
  * fork_process - new process
  * @path: path to execute
  * @tokens: split user input
- * Return: 0 
+ * Return: 0
  */
 
 int fork_process(char *path, char **tokens)
